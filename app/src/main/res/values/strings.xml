@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">My activity</string>
+    <string name="sendbutton">send</string>
+    <string name="commenteditText"></string>
+    <string name="checkBox1">Is this still available?</string>
+    <string name="checkBox2">What is the price?</string>
+    <string name="checkBox3" translatable="false">Next</string>
+    <string name="checkBox4">Interested</string>
+    <string name="textView3">Location</string>
+    <string name="textView2">Name</string>
+    <string name="textView5">Price</string>
+    <string name="textView6">option</string>
+    <string name="text">Ex: pasindu</string>
+    <string name="text1">Ex: Gampaha</string>
+    <string name="text3">Ex: RS 200000</string>
+    <string name="editText4">Ex: Air condition, Power steering</string>
+    <string name="commentbtn">comment</string>
+    <string name="editText5">Ex: DVD Player,dual air bag</string>
+    <string name="callbtn">call</string>
+    <string name="editText7">Ex: 076*******</string>
+    <string name="textView9">Tel</string>
+    <string name="msgbtn">message</string>
+    <string name="toolbar">Comment Section</string>
+
+
+</resources>
