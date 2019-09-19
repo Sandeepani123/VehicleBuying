@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.myapplication.DataBase.DBHandler;
 
 public class SellerLogin extends AppCompatActivity {
 
@@ -14,7 +18,6 @@ public class SellerLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_login);
 
-        setTitle("Login");
     }
     public void register(View view){
 
@@ -29,4 +32,6 @@ public class SellerLogin extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
 }

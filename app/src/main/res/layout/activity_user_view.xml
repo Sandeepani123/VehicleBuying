@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light"
+    android:orientation="vertical"
+    tools:context=".UserView">
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:text="@string/txtusername" />
+
+    <EditText
+        android:id="@+id/TxtUname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:text="@string/txtpassword" />
+
+    <EditText
+        android:id="@+id/TxtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="128dp"
+        tools:text="@string/txtemail" />
+
+    <EditText
+        android:id="@+id/TxtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:text="@string/txtname" />
+
+    <EditText
+        android:id="@+id/TxtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:text="@string/txtphone" />
+
+    <EditText
+        android:id="@+id/TxtPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone" />
+</LinearLayout>

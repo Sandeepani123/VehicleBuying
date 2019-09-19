@@ -20,6 +20,27 @@
     <string name="textView12">Email</string>
     <string name="button3">Send</string>
     <string name="textView2">Re enter password</string>
+    <string name="textusname">Dilsh1998</string>
+    <string name="txtpass">nawnc980310</string>
+    <string name="txtmail">Dilshika1998@gmail.com</string>
+    <string name="txtName">Dilshika Netthikumarage</string>
+    <string name="txtPhone">0717699439</string>
+    <string name="btnSell">Add Vehicle and Add Parts</string>
+    <string name="txtuserprof">User Profile</string>
+    <string name="btnupdate">Update</string>
+    <string name="btnDel">Delete</string>
+    <string name="btnView">View</string>
+    <string name="txtusername">UserName</string>
+    <string name="txtpassword">Password</string>
+    <string name="txtemail">Email</string>
+    <string name="txtname">Name</string>
+    <string name="txtphone">Phone</string>
+    <string name="btnforward">Forward</string>
+    <string name="textwarn">Unauthorized User!</string>
+    <string name="txthint">Search here</string>
+    <string name="txtmsg">Authorized Person?</string>
+    <string name="txtbool1">Yes</string>
+    <string name="txtbool2">No</string>
 
 
 </resources>

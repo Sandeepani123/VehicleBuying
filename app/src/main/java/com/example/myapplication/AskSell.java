@@ -13,7 +13,7 @@ public class AskSell extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask_sell);
 
-        setTitle("Dashboard");
+
     }
 
     public void Login(View view)
