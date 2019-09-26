@@ -21,6 +21,15 @@
     <string name="textView9">Tel</string>
     <string name="msgbtn">message</string>
     <string name="toolbar">Comment Section</string>
+    <string name="button">Back</string>
+    <string name="textView4"></string>
+    <string name="textView"></string>
+    <string name="textView8"></string>
+    <string name="textView10"></string>
+    <string name="textView11"></string>
+    <string name="textView12"></string>
+    <string name="btnupdate">Update</string>
+    <string name="btndelete">Delete</string>
 
 
 </resources>

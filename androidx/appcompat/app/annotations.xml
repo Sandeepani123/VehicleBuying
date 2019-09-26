@@ -1,0 +1,12 @@
+<root>
+    <item
+        name='androidx.appcompat.app.AppCompatViewInflater.DeclaredOnClickListener mResolvedContext'>
+        <annotation name='java.lang.Deprecated' />
+        <annotation name='org.jetbrains.annotations.Nullable' />
+    </item>
+    <item
+        name='androidx.appcompat.app.AppCompatViewInflater.DeclaredOnClickListener mResolvedMethod'>
+        <annotation name='java.lang.Deprecated' />
+        <annotation name='org.jetbrains.annotations.NotNull' />
+    </item>
+</root>
