@@ -4,7 +4,7 @@ import android.provider.BaseColumns;
 
 public final class Unregistered_Seller {
 
-    private Unregistered_Seller(){ }
+    public Unregistered_Seller(){ }
 
     protected static class UnregSeller implements BaseColumns{
 

@@ -17,7 +17,7 @@
         tools:text="@string/txtusername" />
 
     <EditText
-        android:id="@+id/TxtUname"
+        android:id="@+id/TextUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -31,7 +31,7 @@
         tools:text="@string/txtpassword" />
 
     <EditText
-        android:id="@+id/TxtPassword"
+        android:id="@+id/TextPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -47,7 +47,7 @@
         tools:text="@string/txtemail" />
 
     <EditText
-        android:id="@+id/TxtEmail"
+        android:id="@+id/TextM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

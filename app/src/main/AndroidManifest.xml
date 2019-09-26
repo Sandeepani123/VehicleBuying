@@ -9,14 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Permission"></activity>
-        <activity android:name=".GetAllData" />
+        <activity android:name=".SellerView"></activity>
         <activity android:name=".UserView" />
         <activity android:name=".SellerProfile" />
-        <activity android:name=".Forgot" />
-        <activity android:name=".AskSell" />
         <activity android:name=".Register" />
         <activity android:name=".SellerLogin" />
+        <activity android:name=".AskSell" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

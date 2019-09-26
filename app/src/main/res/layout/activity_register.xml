@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_orange_light"
-    android:onClick="Forward"
     android:orientation="vertical"
     android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
     tools:context=".Register">
@@ -21,16 +20,12 @@
         android:layout_marginBottom="8dp"
         android:text="@string/Txt5" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="322dp"
-        android:layout_height="54dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/txtUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView7"
@@ -41,16 +36,12 @@
         android:layout_marginBottom="8dp"
         android:text="@string/Txt6" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="263dp"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtPassword"
-            android:layout_width="222dp"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/textView8"
@@ -62,16 +53,12 @@
         android:layout_marginBottom="8dp"
         android:text="@string/Txt7" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="309dp"
-        android:layout_height="72dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtEmail"
-            android:layout_width="291dp"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView9"
@@ -82,16 +69,12 @@
         android:layout_marginBottom="8dp"
         android:text="@string/Txt8" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="314dp"
-        android:layout_height="72dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TxtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/TxtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView10"
@@ -103,16 +86,12 @@
         android:layout_marginBottom="8dp"
         android:text="@string/Txt9" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="337dp"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TxtPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/TxtPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone" />
 
     <Button
         android:id="@+id/btnReg"
@@ -122,10 +101,10 @@
         android:text="@string/btn2" />
 
     <Button
-        android:id="@+id/button11"
-        android:layout_width="147dp"
-        android:layout_height="69dp"
-        android:onClick="Forward"
-        android:text="@string/btnforward" />
+        android:id="@+id/button3"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:onClick="Login"
+        android:text="Go To Login" />
 
 </LinearLayout>

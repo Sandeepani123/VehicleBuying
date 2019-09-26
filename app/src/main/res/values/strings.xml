@@ -41,6 +41,9 @@
     <string name="txtmsg">Authorized Person?</string>
     <string name="txtbool1">Yes</string>
     <string name="txtbool2">No</string>
+    <string name="btntext">Update</string>
+    <string name="btntext1">Delete</string>
+    <string name="btndelete">Delete SellerName</string>
 
 
 </resources>

@@ -1,67 +1,92 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.ShowableListMenu;
+import androidx.recyclerview.widget.ListAdapter;
 
+import android.app.Notification;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Message;
 import android.view.View;
+import android.view.textclassifier.ConversationActions;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.DataBase.DBHandler;
 
-import java.util.List;
-
-import static com.example.myapplication.Register.EXTRA_EMAIL;
-import static com.example.myapplication.Register.EXTRA_SELLERNAME;
+import java.util.ArrayList;
+//import static com.example.myapplication.Register.EXTRA_EMAIL;
+//import static com.example.myapplication.Register.EXTRA_SELLERNAME;
+//import static com.example.myapplication.ViewSellers.EXTRA_ID;
 
 public class SellerProfile extends AppCompatActivity {
 
     public static final String EXTRA_USER_NAME = "com.example.myapplication.username";
     public static final String EXTRA_PASSWORD = "com.example.myapplication.password";
-    public static final String EXTRA_MAIL = "com.example.myapplication.email";
-    public static final String EXTRA_NAME = "com.example.myapplication.name";
+    public static final String EXTRA_EMAIL = "com.example.myapplication.email";
+    public static final String EXTRA_SELLERNAME = "com.example.myapplication.name";
     public static final String EXTRA_PHONE = "com.example.myapplication.phone";
 
-    String txtusername, txtpassword, txtemail, txtname, txtphone;
-    DBHandler dbHandler = new DBHandler(this);
-
+    String username, password, email, name, phone;
+    TextView TxtName;
+    //ListView listView;
+    Button viewall;
+    Button btndel;
+    //private AdapterView sellview;
+    DBHandler dbHandler;
+    //private Message message;
+    //private AdapterView.OnItemClickListener adapterView;
+    //int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_profile);
 
+        dbHandler = new DBHandler(this);
+
+        viewall = (Button)findViewById(R.id.viewAll);
+
+        //listView = findViewById(R.id.sellList);
+
         Intent intent = getIntent();
 
-        String TXTUSERNAME = intent.getStringExtra(Register.EXTRA_USERNAME);
-        String TXTPASSWORD = intent.getStringExtra(Register.EXTRA_PASSWORD);
-        String TXTEMAIL = intent.getStringExtra(EXTRA_EMAIL);
-        String TXTNAME = intent.getStringExtra(EXTRA_SELLERNAME);
-        String TXTPHONE = intent.getStringExtra(Register.EXTRA_PHONE);
+        String username = intent.getStringExtra(Register.EXTRA_USERNAME);
+        String password = intent.getStringExtra(Register.EXTRA_PASSWORD);
+        String email = intent.getStringExtra(Register.EXTRA_EMAIL);
+        String name = intent.getStringExtra(Register.EXTRA_SELLERNAME);
+        String phone = intent.getStringExtra(Register.EXTRA_PHONE);
 
-        TextView username = findViewById(R.id.txtUserName);
-        TextView password = findViewById(R.id.txtPassword);
-        TextView email = findViewById(R.id.txtEmail);
-        TextView name = findViewById(R.id.TxtName);
-        TextView conphone = findViewById(R.id.TxtPhone);
+        TextView Username = findViewById(R.id.txtUserName);
+        TextView Passowrd = findViewById(R.id.txtPassword);
+        TextView Email = findViewById(R.id.txtEmail);
+        TextView Name  = findViewById(R.id.TxtName);
+        TextView Phone = findViewById(R.id.TxtPhone);
 
-        username.setText(TXTUSERNAME);
-        password.setText(TXTPASSWORD);
-        email.setText(TXTEMAIL);
-        name.setText(TXTNAME);
-        conphone.setText(TXTPHONE);
+        Username.setText(username);
+        Passowrd.setText(password);
+        Email.setText(email);
+        Name.setText(name);
+        Phone.setText(phone);
+
+        //public void SellerList(){}
+
 
 
     }
 
+
     public void updateDetails(View view) {
 
         Intent intent = new Intent(SellerProfile.this, UserView.class);
-
 
         EditText usename = findViewById(R.id.txtUserName);
         EditText pswd = findViewById(R.id.txtPassword);
@@ -91,8 +116,8 @@ public class SellerProfile extends AppCompatActivity {
 
         intent.putExtra(EXTRA_USER_NAME, usnametext);
         intent.putExtra(EXTRA_PASSWORD, pswdtext);
-        intent.putExtra(EXTRA_MAIL, mailtext);
-        intent.putExtra(EXTRA_NAME, sellernametext);
+        intent.putExtra(EXTRA_EMAIL, mailtext);
+        intent.putExtra(EXTRA_SELLERNAME, sellernametext);
         intent.putExtra(EXTRA_PHONE, phonenotext);
 
         startActivity(intent);
@@ -100,52 +125,79 @@ public class SellerProfile extends AppCompatActivity {
 
     }
 
+    public void viewdata(View view){
 
-    public void deleteUser(View view) {
+         //show (Button) = findViewById(R.id.viewAll);
 
-        TextView usename;
-        String usnametext;
+        viewall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        usename = findViewById(R.id.txtUserName);
+                Cursor data = dbHandler.getSeller();
+                if(data.getCount() == 0){
 
-        int res = dbHandler.delete(
-                usnametext = usename.getText().toString()
-        );
+                    showMessage("Error","Nothing found");
+                    return;
+                }
 
-        if (res == 1) {
-            Toast.makeText(getApplicationContext(), "Delete Successful", Toast.LENGTH_LONG).show();
+                StringBuffer buffer = new StringBuffer();
 
+                while (data.moveToNext()){
 
-        } else {
-            Toast.makeText(getApplicationContext(), "Delete error", Toast.LENGTH_LONG).show();
+                    buffer.append("User Name" +data.getString(0)+ "\n");
+                    buffer.append("Password" +data.getString(1)+ "\n");
+                    buffer.append("Email" +data.getString(2)+"\n");
+                    buffer.append("Seller Name" +data.getString(3)+"\n");
+                    buffer.append("Contatct" +data.getString(4)+"\n\n");
 
-        }
+                    //ShowableListMenu("Data",buffer.toString());
+                    showMessage("Data",buffer.toString());
+
+                }
+
+            }
+        });
+
 
     }
 
-    public void displaySeller(View view) {
+    public void showMessage(String title,String msg){
 
-            Intent intent = new Intent(SellerProfile.this,GetAllData.class);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(msg);
+        builder.show();
 
-            TextView usnametext = findViewById(R.id.txtUserName);
-            TextView pswdtext = findViewById(R.id.txtPassword);
-            TextView mailtext = findViewById(R.id.txtEmail);
-            TextView nametext = findViewById(R.id.TxtName);
-            TextView contactext = findViewById(R.id.TxtPhone);
 
-            String username = usnametext.getText().toString();
-            String psword = pswdtext.getText().toString();
-            String E_mail =  mailtext.getText().toString();
-            String sel_name = nametext.getText().toString();
-            String phnum = nametext.getText().toString();
 
-            intent.putExtra(EXTRA_USER_NAME,username);
-            intent.putExtra(EXTRA_PASSWORD,psword);
-            intent.putExtra(EXTRA_MAIL,E_mail);
-            intent.putExtra(EXTRA_NAME,sel_name);
-            intent.putExtra(EXTRA_PHONE,phnum);
 
-        startActivity(intent);
+
+    }
+
+    public  void  deleteSeller(View view){
+
+        btndel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Integer deleterow = dbHandler.deleteUser(TxtName.getText().toString());
+
+                if(deleterow > 0){
+
+                    Toast.makeText(SellerProfile.this,"Delete Successful",Toast.LENGTH_LONG).show();
+
+                }
+                else
+                {
+                    Toast.makeText(SellerProfile.this,"Deletion Unsuccess",Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+
+
+
 
 
 
@@ -155,6 +207,8 @@ public class SellerProfile extends AppCompatActivity {
 
 
 }
+
+
 
 
 

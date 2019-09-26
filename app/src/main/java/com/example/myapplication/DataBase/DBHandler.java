@@ -7,16 +7,22 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME =  "SellerInfo.db";
+    public static final String DATABASE_NAME = "SellerInfo.db";
+    public static final String TABLE_NAME = "seller";
+    public static final String COLUMN_NAME_USERNAME = "username";
+    public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_NAME_EMAIL = "email";
+    public static final String COLUMN_NAME_NAME = "name";
+    public static final String COLUMN_NAME_PHONE = "phone";
+
 
 
     public DBHandler(Context context) {
-        super(context,DATABASE_NAME,null,1);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
@@ -31,7 +37,7 @@ public class DBHandler extends SQLiteOpenHelper {
                         Unregistered_Seller.UnregSeller.COLUMN_NAME_NAME + " TEXT," +
                         Unregistered_Seller.UnregSeller.COLUMN_NAME_PHONE + " TEXT)";
 
-                        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
+        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
 
     }
 
@@ -40,44 +46,47 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public long addDetails(String username,String password,String Email,String Name,String phone){
+    public long addDetails(String username, String password, String Email, String Name, String phone) {
 
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
-        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_USERNAME,username);
-        values.put(Unregistered_Seller.UnregSeller.COLUMN_PASSWORD,password);
-        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_EMAIL,Email);
-        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_NAME,Name);
-        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_PHONE,phone);
+        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_USERNAME, username);
+        values.put(Unregistered_Seller.UnregSeller.COLUMN_PASSWORD, password);
+        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_EMAIL, Email);
+        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_NAME, Name);
+        values.put(Unregistered_Seller.UnregSeller.COLUMN_NAME_PHONE, phone);
 
-        long newrowid = db.insert(Unregistered_Seller.UnregSeller.TABLE_NAME,null,values);
+        long newrowid = db.insert(Unregistered_Seller.UnregSeller.TABLE_NAME, null, values);
 
-        if(newrowid > 0){
-            Log.d("Insert","Data Added Successfully");
+        if (newrowid > 0) {
+            Log.d("Insert", "Data Added Successfully");
 
 
-        }
-        else
-        {
-            Log.d("Insert","Error");
+        } else {
+            Log.d("Insert", "Error");
 
         }
-            return newrowid;
+        return newrowid;
 
     }
 
-    public Cursor readDetails(){
+    //public Cursor readDetails() {
 
-        SQLiteDatabase db = getReadableDatabase();
-        String query = "Select * from "+ Unregistered_Seller.UnregSeller.TABLE_NAME;
-        Cursor cursor = db.rawQuery(query,null);
+        //SQLiteDatabase db =  this.getWritableDatabase();
 
-        return cursor;
+        //String query = "SELECT * FROM " + Unregistered_Seller.UnregSeller.TABLE_NAME;
+
+        //Cursor data = db.rawQuery("Select * From " + Unregistered_Seller.UnregSeller.TABLE_NAME,null);
+
+        //return data;
 
 
-    }
+
+    //}
+
+
 
 
     public boolean updateInfo(String username,String password,String Email,String Name,String phone) {
@@ -112,25 +121,37 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public int delete(String username){
+    public int deleteUser(String Name){
 
-        SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
 
-        String selection = Unregistered_Seller.UnregSeller.COLUMN_NAME_USERNAME + " LIKE ?";
-        String[] selectionargs = {username};
+        return db.delete(TABLE_NAME,"NAME ?",new  String[]{Name});
 
-        long result = db.delete(Unregistered_Seller.UnregSeller.TABLE_NAME,selection,selectionargs);
-
-        if(result > 0){
-
-            return 1;
-        }
-        else
-        {
-            return -1;
-
-        }
 
 
     }
+
+    public Cursor getSeller(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor data = db.rawQuery("SELECT * FROM " +Unregistered_Seller.UnregSeller.TABLE_NAME,null);
+
+        return data;
+
+
+    }
+
+    public Cursor search(String Name){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " +Unregistered_Seller.UnregSeller.TABLE_NAME+" WHERE " + Unregistered_Seller.UnregSeller.COLUMN_NAME_NAME+ " Like '%" + Name + '%';
+
+                Cursor cursor = db.rawQuery(query,null);
+                return cursor;
+
+    }
+
+
+
 }
